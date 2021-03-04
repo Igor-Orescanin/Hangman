@@ -1,6 +1,6 @@
 import React , { useState} from "react";
 import Win from './Win_Lose';
-import Loggin from "./Loggin"
+import Login from "./Login"
 
 function App() {
   return (
