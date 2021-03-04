@@ -1,5 +1,9 @@
 
-function lognin() {
+
+
+
+
+function Login() {
     return(
         <div>
             <h1>This is Sandeep's File</h1>
@@ -7,4 +11,4 @@ function lognin() {
     )
 }
 
-export default Loggin
+export default Login 
