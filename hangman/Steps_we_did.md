@@ -47,3 +47,16 @@ than
 
 than
 .git push 
+____________________________________________________________
+
+2020_03_02
+I installed sass for bootstaps to change the color you can find in main.scss
+make the design page for win 
+____________________________________________________________
+2020_03_07
+I made same changes I instull routers so we can have of the pages the routes 
+I put that in app.js but later wie should shange that to the right start side I guess
+
+I liked the /game page to the /win and /lose page and both of them back to the / 'home' page that should we change later smile 
+
+____________________________________________________________
