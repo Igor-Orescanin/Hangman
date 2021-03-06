@@ -1,5 +1,10 @@
 import {useState, useEffect} from 'react'
-import Win from './Win_Lose' // PAGE THAT WILL BE DISPLAYED ON END OF THE GAME
+import Win from './Win' // PAGE THAT WILL BE DISPLAYED ON END OF THE GAME
+import Lose from './Lose' // PAGE THAT WILL BE DISPLAYED ON END OF THE GAME
+
+// to redirect to the pages
+import React from 'react';
+import {Redirect} from 'react-router';
 
 //  FUNCTIONAL COMPONENT OF THE GAME
 
@@ -22,6 +27,7 @@ export default function Game(props) {
             "Badger",
             "Barracuda"
         ] 
+
         let randomWord = wordArray[Math.floor(Math.random() * wordArray.length)] // GETTING RANDOM WORD FROM ARRAY 
     
     
@@ -58,7 +64,7 @@ export default function Game(props) {
         
         return "abcdefghjklimnopqrstuvwxyz".split('').map(letter =>(
             <button 
-            className = 'btn btn-primary m-1' 
+            className = 'btn btn-redish-color m-1' 
             key = {letter} 
             value = {letter}
             onClick = {(e) => handleGuess(e)}
@@ -76,28 +82,33 @@ export default function Game(props) {
     let guessLeft = maxWrong - mistake;
     
     if(wordGuess === word){   // WHEN THE WORD HAS BEEN GUESSED IT WILL RETURN WIN PAGE
-        return <Win/>
+        return <Redirect to={'/win'}/> // to jump to the right /win and not stay on /game
     } else if(mistake >= maxWrong){  // IF MISTAKES ARE EQUAL OR GREATER THAN MAX.WRONG GUESSES THAN IT WILL DISPLAY STRING YOU LOST OR ANOTHER LOSE PAGE 
-        return <h2>'You LOST'</h2>
+        return <Redirect to={'/lose'}/> // to jump to the right /lose and not stay on /game
     } else {            //   ELSE IF NEITHER OF THOSE TWO CONDITIONS ABOVE ARE MET THE GAME WILL CONTINUE
         return (
-        <div>
-            <div>
-                <h2 className='playerName'>Ted</h2>
+        <div className='bg-greenish-color'>
+        <div className=' container-sm   pt-5 pb-5'>
+            <div className=' bg-greenish-color '>
+                <h2 className='playerName'> Hello Ted</h2>
             </div>
-            <div>
-                {buttons()}
-            </div>
-            <div>
-                <p>{word}</p>
+            <div className='pt-3'>
+                <p className='text-organish-color font-weight-bolder'>The word is form the catecory animal</p>
+                <p >{word}</p>
                 <p>
                     {firstClick ? wordGuess : guessedWord()}
                 </p>
             </div>
+            <div className='d-flex justify-content-center'>
+            <div className='w-75 pt-2 pb-4'>
+                {buttons()}
+            </div>
+            </div>
             <div>
-                <h4>Guesses left {guessLeft}</h4>
+                <h4 >Guesses left {guessLeft}</h4>
             </div>
             
+        </div>
         </div>
     )
     }

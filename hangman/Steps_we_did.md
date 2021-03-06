@@ -9,6 +9,8 @@ bootstaps
 4. npm install bootstraps
 sass  <!-- for customize bootstraps color -->
 5. npm install sass
+router <!-- for routing to the pages -->
+6. npm install react-router-dom 
 ___________________________________________________________
 
 //for run the project 
