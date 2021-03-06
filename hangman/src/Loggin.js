@@ -1,5 +1,5 @@
 
-function lognin() {
+function Loggin() {
     return(
         <div>
             <h1>This is Sandeep's File</h1>
