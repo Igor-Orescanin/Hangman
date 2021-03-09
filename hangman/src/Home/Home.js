@@ -8,6 +8,8 @@ function Title() {
             <div className="Container">
                 <header>
                     <div className="alphabet-wrapper">
+
+                        <p>hi</p>
                         <ul className="alphabet">
                             <li className="alphabetLetters">H</li>
                             <li className="alphabetLetters">A</li>
