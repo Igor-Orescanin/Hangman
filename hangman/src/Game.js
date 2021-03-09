@@ -82,9 +82,9 @@ export default function Game(props) {
     let guessLeft = maxWrong - mistake;
     
     if(wordGuess === word){   // WHEN THE WORD HAS BEEN GUESSED IT WILL RETURN WIN PAGE
-        return <Redirect to={'/win'}/> // to jump to the right /win and not stay on /game
+        return <Redirect to={'/win'}/>// to jump to the right /win and not stay on /game
     } else if(mistake >= maxWrong){  // IF MISTAKES ARE EQUAL OR GREATER THAN MAX.WRONG GUESSES THAN IT WILL DISPLAY STRING YOU LOST OR ANOTHER LOSE PAGE 
-        return <Redirect to={'/lose'}/> // to jump to the right /lose and not stay on /game
+        return <Redirect to={'/lose'}/>// to jump to the right /lose and not stay on /game
     } else {            //   ELSE IF NEITHER OF THOSE TWO CONDITIONS ABOVE ARE MET THE GAME WILL CONTINUE
         return (
         <div className='bg-greenish-color'>
