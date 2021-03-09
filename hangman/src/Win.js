@@ -24,6 +24,7 @@ export default function Win(props) {
             <br/><br/>
             <Link to='/'><button className="btn btn-redish-color pl-4 pr-4">Log Out</button></Link> 
             <br/><br/>
+            <p>test for the best </p>
         </div>
     )
 }
