@@ -90,7 +90,7 @@ export default function Game(props) {
         <div className='bg-greenish-color'>
         <div className=' container-sm   pt-5 pb-5'>
             <div className=' bg-greenish-color '>
-                <h2 className='playerName'> Hello Ted</h2>
+                <h2 className='playerName'> Hello {props.location.name}</h2>
             </div>
             <div className='pt-3'>
                 <p className='text-organish-color font-weight-bolder'>The word is form the catecory animal</p>
