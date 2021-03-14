@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import {BrowserRouter, Link ,Route} from 'react-router-dom'
+import { BrowserRouter, Link, Route } from 'react-router-dom'
 import './Login.css';
 import { Redirect } from 'react-router';
 //import Game from "./Game"
@@ -8,19 +8,19 @@ class Login extends Component {
 	constructor() {
 		super();
 		this.state = {
-			username:'',
+			username: '',
 			password: '',
 			error: '',
 			gamePage: false
 		};
-    
+
 
 		this.handlePassChange = this.handlePassChange.bind(this);
 		this.handleUserChange = this.handleUserChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.dismissError = this.dismissError.bind(this);
 	}
-	usernames = ['Marika','Maritza', 'Sandeep', 'Igor'];
+	usernames = ['Marika', 'Maritza', 'Sandeep', 'Igor'];
 	dismissError() {
 		this.setState({ error: '' });
 	}
@@ -38,14 +38,14 @@ class Login extends Component {
 	handleSubmit(evt) {
 
 		//evt.preventDefault();
-        
+
 		this.usernames.forEach(username => {
-           if (this.state.username === username && this.state.password === '123') {
-			this.setState({ gamePage: true })
-		}
+			if (this.state.username === username && this.state.password === '123') {
+				this.setState({ gamePage: true })
+			}
 		})
-		
-		
+
+
 		console.log(this.state);
 		if (!this.state.username) {
 			return this.setState({ error: 'Username is required' });
@@ -88,18 +88,19 @@ class Login extends Component {
 
 							</div>
 
-							{/* <Link to='/game'> </Link> */}
-							<input type="submit" value="Login" onClick={this.handleSubmit} />
-						</form>
 
+							<input type="submit" value="Login" onClick={this.handleSubmit} />
+
+						</form>
+						<Link to={{ pathname: "/", name: "Guest" }}><input type="submit" value="Play as a Guest" /></Link>
 					</div>
 				</div>
 			);
 		} else {
 			return (
-				
-						  <Redirect to={{pathname:'/game', name: this.state.username}}/> 
-				
+
+				<Redirect to={{ pathname: '/', name: this.state.username }} />
+
 			)
 		}
 
