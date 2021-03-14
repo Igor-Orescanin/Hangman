@@ -4,7 +4,7 @@ import Win from './Win';
 import Lose from './Lose';
 import Game from './Game';
 import Home from './Home/Home';
-import LoginForm from "./LoginForm"
+import Login from "./Login"
 
 // to route to the pages
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -16,6 +16,7 @@ function App() {
          <Route path='/game' component={Game}></Route> 
          <Route path='/win' component={Win}></Route> 
          <Route path='/lose' component={Lose}></Route> 
+         <Route path='/login' component={Login}></Route>
         </div>
     </Router>
   );

@@ -2,6 +2,8 @@ import React from 'react';
 import './Home.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';  
 
+import { Link } from 'react-router-dom'
+
 function Title() {
     return(    
         <div className="Roote">
@@ -23,7 +25,7 @@ function Title() {
                 </header>
                 <section>
                     <div className="buttonsWrapper"> 
-                        <a className="singupButton"> Sing Up</a>
+                    <Link to='/login'> <a className="singupButton"> Sing Up</a> </Link>
                         <a className="playButton"> Play</a>
                     </div>
                     <div className="gameRules">
