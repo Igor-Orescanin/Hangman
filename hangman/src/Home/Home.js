@@ -1,10 +1,24 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Home.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';  
 
+
 import { Link } from 'react-router-dom'
 
-function Title() {
+function Title(props) {
+
+    const [category, setCategory] = useState('')
+
+
+    function categoryFunction(e) {
+        setCategory(e.target.value)
+        console.log(category)
+    }
+
+
+
+
+
     return(    
         <div className="Roote">
             <div className="Container">
@@ -21,13 +35,11 @@ function Title() {
                         </ul>
                     </div>
                     <h1 className="title">HANGMAN</h1>
+                    <h2>Hello {props.location.name}</h2>
                     <p className="description">Game</p>
                 </header>
                 <section>
-                    <div className="buttonsWrapper"> 
-                    <Link to='/login'> <a className="singupButton"> Sing Up</a> </Link>
-                        <a className="playButton"> Play</a>
-                    </div>
+                   
                     <div className="gameRules">
                         <p></p>
                         <p></p>
@@ -36,14 +48,18 @@ function Title() {
                     </div>
 
                     <div class="dropdown pt-4">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Category
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button">Animal</button>
-                            <button class="dropdown-item" type="button">Color</button>
-                            <button class="dropdown-item" type="button">Country</button>
+                        <div id='dropMenu' class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" onClick={(e) => categoryFunction(e)} value='animal' type="button">Animal</button>
+                            <button class="dropdown-item" onClick={(e) => categoryFunction(e)} value='color' type="button">Color</button>
+                            <button class="dropdown-item" onClick={(e) => categoryFunction(e)} value='country' type="button">Country</button>
                         </div>
+                        <div className="buttonsWrapper"> 
+                    <Link to={{pathname:'/game', category: category, name: props.location.name}}> <a className="singupButton">Play</a> </Link>
+                        
+                    </div>
                     </div>
                     <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
                 </section>
