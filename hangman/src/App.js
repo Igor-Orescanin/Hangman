@@ -12,11 +12,11 @@ function App() {
   return (
     <Router> {/* // to define the routes in the browser */}
         <div className="App">
-         <Route path='/' exact component={Home}></Route>
+         <Route path='/' exact component={Login}></Route>
          <Route path='/game' component={Game}></Route> 
          <Route path='/win' component={Win}></Route> 
          <Route path='/lose' component={Lose}></Route> 
-         <Route path='/login' component={Login}></Route>
+         <Route path='/home' component={Home}></Route>
         </div>
     </Router>
   );

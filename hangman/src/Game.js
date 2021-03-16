@@ -12,8 +12,9 @@ export default function Game(props) {
 
     // EXAMPLE ARRAY OF ANIMAL WORDS
 
-        let wordArray = [
-            "Aardvark",
+    let categorys = {
+        animal: [
+            "Cat",
             "Albatross",
             "Alligator",
             "Alpaca",
@@ -24,11 +25,76 @@ export default function Game(props) {
             "Armadillo",
             "Donkey",
             "Baboon",
-            "Badger",
-            "Barracuda"
-        ] 
+            "Leopard",
+            "Panter",
+            "Barracuda",
+            "Dog",
+            "Jaguar",
+            "Lion",
+            "Tiger",
+            "Sheep",
+            "Goat",
+            "Lamb",
+            "Cow",
+            "Camel",
+            "Elephant",
+            "Koala",
+            "Bear",
+            "Eagle",
+            "Owl",
+            "Kangaroo",
+            "Mouse"
+        ],
+        country: [
+            "Afghanistan",
+            "Albania",
+            "Algeria",
+            "India",
+            "Angola",
+            "Serbia",
+            "Argentina",
+            "Mexico",
+            "Aruba",
+            "Australia",
+            "Austria",
+            "Greece",
+            "Italy",
+            "Dubai",
+            "Belgium",
+            "Poland",
+            "France",
+            "Portugal",
+            "Netherlands",
+            "Denmark",
+            "Cuba"
+          ],
+          color: [
+            "Aquamarine",
+            "Azure",
+            "Red",
+            "Orange",
+            "Black",
+            "Blue",
+            "Violet",
+            "Brown",
+            "Yellow",
+            "Green",
+            "Gray",
+            "Purple",
+            "White",
+            "Pink"
+          ]
+    }
 
-        let randomWord = wordArray[Math.floor(Math.random() * wordArray.length)] // GETTING RANDOM WORD FROM ARRAY 
+    let randomArray;
+        for (const key in categorys) {
+            if (key === props.location.category) {
+                randomArray = categorys[key]
+                console.log(randomArray)
+            }
+        }
+
+          let randomWord = randomArray[Math.floor(Math.random() * randomArray.length)] // GETTING RANDOM WORD FROM ARRAY 
     
     
     //const playerName = props.userName;
@@ -37,7 +103,6 @@ export default function Game(props) {
     // HOOOKS
 
     const [mistake, setMistake] = useState(0); // SETTING STATE OF  "mistake" AT 0
-    //const [randomWord, setRandomWord] = useState(props.selectedCategory)  THIS SHOULD COME FROM HOME PAGE "TITEL"
     const [guessed, setGuessed] = useState(new Set([])) // ARRAY THAT WILL BE FILLED WITH LETTERS ON BUTTON FUNCTION HANDEL "handleGuess"
     const [word ,setWord] = useState(randomWord.toLocaleLowerCase()); // SETTING STATE OF "word" FROM  "randomWord"
     const [wordGuess, setWordGuess] = useState('')   //  WORD THAT WILL BE DISPLAYED WHILE GUESSING 
@@ -82,7 +147,7 @@ export default function Game(props) {
     let guessLeft = maxWrong - mistake;
     
     if(wordGuess === word){   // WHEN THE WORD HAS BEEN GUESSED IT WILL RETURN WIN PAGE
-        return <Redirect to={'/win'}/>// to jump to the right /win and not stay on /game
+        return <Redirect to={{pathname:'/win', name:props.location.name}}/>// to jump to the right /win and not stay on /game
     } else if(mistake >= maxWrong){  // IF MISTAKES ARE EQUAL OR GREATER THAN MAX.WRONG GUESSES THAN IT WILL DISPLAY STRING YOU LOST OR ANOTHER LOSE PAGE 
         return <Redirect to={'/lose'}/>// to jump to the right /lose and not stay on /game
     } else {            //   ELSE IF NEITHER OF THOSE TWO CONDITIONS ABOVE ARE MET THE GAME WILL CONTINUE
@@ -90,11 +155,11 @@ export default function Game(props) {
         <div className='bg-greenish-color'>
         <div className=' container-sm   pt-5 pb-5'>
             <div className=' bg-greenish-color '>
-                <h2 className='playerName'> Hello {props.location.name}</h2>
+                <h2 className='playerName'> Hello {props.location.name} {props.location.category}</h2>
             </div>
             <div className='pt-3'>
-                <p className='text-organish-color font-weight-bolder'>The word is form the catecory animal</p>
-                <p >{word}</p>
+                <p className='text-organish-color font-weight-bolder'>The word is from the category of {props.location.category}</p>
+                {/* <p >{word}</p> */}
                 <p>
                     {firstClick ? wordGuess : guessedWord()}
                 </p>

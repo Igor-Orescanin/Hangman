@@ -92,14 +92,14 @@ class Login extends Component {
 							<input type="submit" value="Login" onClick={this.handleSubmit} />
 
 						</form>
-						<Link to={{ pathname: "/", name: "Guest" }}><input type="submit" value="Play as a Guest" /></Link>
+						<Link to={{ pathname: "/home", name: "Guest" }}><input type="submit" value="Play as a Guest" /></Link>
 					</div>
 				</div>
 			);
 		} else {
 			return (
 
-				<Redirect to={{ pathname: '/', name: this.state.username }} />
+				<Redirect to={{ pathname: '/home', name: this.state.username }} />
 
 			)
 		}
