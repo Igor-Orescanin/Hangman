@@ -68,3 +68,19 @@ for git pull
 stay in your local branch
 make a pull request on Github page
 confirm
+
+___________________________________________________________
+if you have gibhub problems to pull and got that Error 
+
+error: Your local changes to the following files would be overwritten by merge:
+<name of the file>
+git checkout HEAD^ <name of the file>
+---------------------
+example
+
+error: Your local changes to the following files would be overwritten by merge:
+        hangman/src/Win.js
+Please commit your changes or stash them before you merge.
+Aborting
+hangman$ git checkout HEAD^ src/Win.js 
+________________________________________________________
